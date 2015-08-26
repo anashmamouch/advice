@@ -73,14 +73,15 @@ p {
 /* LOGO */
 
 #logo {
+  font-family: 'Lobster', cursive;
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 2em;
   color: #fff;
-  text-transform: uppercase;
+
   letter-spacing: -1px;
   padding-top: 9px;
-  font-weight: bold;
+
 
 	  &:hover {
 	  color: #56B8D8;

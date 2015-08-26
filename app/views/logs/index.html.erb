@@ -5,6 +5,13 @@
 </div>
 
 <!-- /Page header -->
+<div class="pull-right">
+  <% if user_signed_in? %>
+   <%= link_to "Se déconnecter", '/users/sign_out', method: :delete %>
+  <% else %>
+    <%= link_to "Login", new_user_session_path %>
+  <%end%>
+</div>
 
 <!-- The form-->
 <%=form_for :log, url: logs_path do |f| %>

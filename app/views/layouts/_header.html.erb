@@ -9,7 +9,7 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				    <div><%= link_to "wakeuppilot", root_path, id: "logo" %></div>
+				    <div><%= link_to "WakeUpPilot", root_path, id: "logo" %></div>
 				 </div>
 
 				<div class="collapse navbar-collapse navbar-ex1-collapse" id="bs-navbar-collapse">
@@ -18,7 +18,7 @@
 
             <% if user_signed_in? %>
 
-            <li>  <%= link_to "Logout", '/users/sign_out', method: :delete %>  </li>
+            <li>  <%= link_to "Se déconnecter", '/users/sign_out', method: :delete %>  </li>
 						<% else %>
             <li>
               <%= link_to "Login", new_user_session_path %>
