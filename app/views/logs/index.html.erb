@@ -1,7 +1,7 @@
 
 <!-- Page header -->
 <div class="page-header">
-    <h1>Fiches Conseil <small>(<%=@count %> conseils)</small></h1>
+    <h1>Fiches Conseil <small class="small-header">(<%=@count %> conseils)</small></h1>
 </div>
 
 <!-- /Page header -->
@@ -54,9 +54,7 @@
             <!-- Body -->
             <div class="panel-body">
                <%=log.body.capitalize%><br/>
-               <small class="pull-right">crée le <%=log.created_at.strftime("%d/%m/%Y")%> à <%=log.created_at.strftime("%H:%M")%> | <%= link_to 'Effacer la fiche', log, method: :delete, data: { confirm: 'Are you sure?' }%></small>
-
-
+               <small class="pull-right"><span class = "small-time">crée le <%=log.created_at.strftime("%d/%m/%Y")%> à <%=log.created_at.strftime("%H:%M")%> | </span><%= link_to 'Effacer la fiche', log, method: :delete, data: { confirm: 'Are you sure?' }%></small>
             </div>
             <!-- /Body -->
 

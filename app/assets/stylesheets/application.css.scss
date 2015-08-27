@@ -22,6 +22,18 @@
   src: url("/assets/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("/assets/glyphicons-halflings-regular.woff") format("woff"), url("/assets/glyphicons-halflings-regular.ttf") format("truetype"), url("/assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
 }
 
+@media (max-width: 768px) {
+  #logo {
+      margin-left:40%;
+  }
+  .page-header{
+    font-size: 10px;
+  }
+  .small-header{
+    display: block;
+  }
+}
+
 $light-gray: #777;
 
 @mixin box-sizing {
@@ -41,6 +53,7 @@ html{
 body{
 	padding-top:60px !important;
 	font-family: 'Roboto', sans-serif;
+  
 }
 #content{
 
@@ -89,7 +102,9 @@ p {
 	}
 
 }
-
+.small-time{
+  color: #CCC;
+}
 .btn-xl{
 
     margin-bottom: 20px;
