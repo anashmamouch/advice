@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ball_touched: 1
+  total_touches: 1
+  first_time: false
+  player_id: 
+
+two:
+  ball_touched: 1
+  total_touches: 1
+  first_time: false
+  player_id: 

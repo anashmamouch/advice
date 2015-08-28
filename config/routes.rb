@@ -36,5 +36,7 @@ namespace :api, defaults: {formats: 'json'} do
 end
 
 resources :logs
+resources :players
+resources :games
 root "logs#index"
 end

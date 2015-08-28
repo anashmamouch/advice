@@ -1,0 +1,8 @@
+<h1>Games</h1>
+<% @games.each do |game|%>
+  Total touches :<%= game.total_touches%><br/>
+  Ball touched : <%= game.ball_touched%><br/>
+  First time : <%= game.first_time%><br/>
+  Player id: <%=  game.player_id%><br/>
+  Player : <%= Player.find(game.player_id).username%><br/><br/>
+<%end%>
