@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
-  before_action :authenticate_user!
+  #no need for authentication
+  #before_action :authenticate_user!
 
   def index
     @games = Game.all
