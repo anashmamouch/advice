@@ -39,7 +39,7 @@ class GamesController < ApplicationController
 	    end
 
 		def game_params
-			params.require(:game).permit(:ball_touched, :total_touches, :first_time, :player_id)
+			params.require(:game).permit(:ball_touched, :total_touches, :first_time, :player_id, :player_name, :player_age, :player_genre )
 		end
 
 end
