@@ -1,5 +1,28 @@
-<% @players.each do |player|%>
-  Username: <%= player.username%><br/>
-  Age: <%= player.age%><br/>
-  Genre: <%= player.genre%><br/><br/>
-<%end%>
+<h1>Utilisateurs</h1>
+
+<div class="table-responsive">
+  <table class="table table-condensed table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>#ID</th>
+            <th>Nom</th>
+            <th>Age</th>
+            <th>Genre</th>
+            <th>Date</th>
+
+        </tr>
+    </thead>
+    <tbody>
+      <% @players.each do |player|%>
+        <tr>
+          <td><%= player.id%></td>
+          <td><%= player.username%></td>
+          <td><%= player.age%></td>
+          <td><%= player.genre%></td>
+          <td><%= player.created_at.strftime("%d/%m/%Y  %H:%M")%></td>
+        </tr>
+      <%end%>
+    </tbody>
+
+  </table>
+</div>

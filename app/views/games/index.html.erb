@@ -1,4 +1,4 @@
-<h1>Games</h1>
+<h1>Statistiques</h1>
 
 <div class="table-responsive">
   <table class="table table-condensed table-hover table-bordered">
@@ -8,9 +8,10 @@
             <th>Nom</th>
             <th>Age</th>
             <th>Genre</th>
-            <th>Total touches</th>
-            <th>Ball touched</th>
-            <th>First time</th>
+            <th>Total</th>
+            <th>Ball touché</th>
+            <th>Reference</th>
+            <th>Date</th>
 
         </tr>
     </thead>
@@ -23,10 +24,18 @@
           <td><%= game.player_genre%></td>
           <td><%= game.total_touches%></td>
           <td><%= game.ball_touched%></td>
-          <td><%= game.first_time%></td>
+          <td>
+              <%if(game.first_time)%>
+                  OUI
+              <%else%>
+                  NON
+              <%end%>
+          </td>
+          <td><%= game.created_at.strftime("%d/%m/%Y  %H:%M")%></td>
+
         </tr>
       <%end%>
     </tbody>
-    
+
   </table>
 </div>
