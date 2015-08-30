@@ -1,8 +1,32 @@
 <h1>Games</h1>
-<% @games.each do |game|%>
-  Total touches :<%= game.total_touches%><br/>
-  Ball touched : <%= game.ball_touched%><br/>
-  First time : <%= game.first_time%><br/>
-  Player id: <%=  game.player_id%><br/>
-  Player : <%= Player.find(game.player_id).username%><br/><br/>
-<%end%>
+
+<div class="table-responsive">
+  <table class="table table-condensed table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>#ID</th>
+            <th>Nom</th>
+            <th>Age</th>
+            <th>Genre</th>
+            <th>Total touches</th>
+            <th>Ball touched</th>
+            <th>First time</th>
+
+        </tr>
+    </thead>
+    <tbody>
+      <% @games.each do |game|%>
+        <tr>
+          <td><%= game.id%></td>
+          <td><%= game.player_name%></td>
+          <td><%= game.player_age%></td>
+          <td><%= game.player_genre%></td>
+          <td><%= game.total_touches%></td>
+          <td><%= game.ball_touched%></td>
+          <td><%= game.first_time%></td>
+        </tr>
+      <%end%>
+    </tbody>
+    
+  </table>
+</div>
