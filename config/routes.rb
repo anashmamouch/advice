@@ -36,7 +36,9 @@ namespace :api, defaults: {formats: 'json'} do
 end
 
 resources :logs
-resources :players
+resources :players do
+  #match :create, via: [:post],  on: :collection
+end
 resources :games
 root "logs#index"
 end

@@ -12,16 +12,13 @@ class PlayersController < ApplicationController
   end
 
   def create
-    @player = Player.new(player_params)
-    @player.save
 
-
+    Player.create(player_params[:player])
 
     respond_to do |format|
-        format.html {redirect_to players.json_url }
-        format.json {  @players = Player.all ; render json: @players }
+       format.html {redirect_to players.json_url }
+       format.json {  @players = Player.all ; render json: @players }
     end
-
   end
 
   def show
@@ -46,6 +43,6 @@ class PlayersController < ApplicationController
 	    end
 
 		def player_params
-			params.require(:player).permit(:username, :age, :genre)
+			params.permit(player: [:username, :age, :genre])
 		end
 end
