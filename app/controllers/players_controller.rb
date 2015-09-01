@@ -30,8 +30,11 @@ class PlayersController < ApplicationController
   end
 
   def create
-
-    Player.create(player_params[:player])
+    #don't record array if empty
+    #bad dirty code!! :( 
+    if !player_params[:player].empty?
+      Player.create(player_params[:player])
+    end
 
     respond_to do |format|
        format.html {redirect_to players.json_url }
