@@ -3,11 +3,29 @@ class PlayersController < ApplicationController
   #before_action :authenticate_user!
 
   def index
-    @players = Player.all
-
+    @players = Player.all.order('created_at DESC').page(params[:page])
+    @count = @players.count
     respond_to do |format|
         format.html
         format.json { @players = Player.all ; render json: @players }
+        format.csv  { @players = Player.all ; send_data @players.to_csv }
+        format.pdf  do
+          @players = Player.all
+          pdf = Prawn::Document.new
+
+          pdf.text "Statistiques WakeUpPilot"
+          pdf.move_down 10
+          #pdf.table
+          data = @players.map do |player|
+            [
+                  player.username,
+                  player.age,
+                  player.genre
+            ]
+          end
+          pdf.table [["Username", "Age", "Genre"]] + data
+          send_data pdf.render, filename: "wakeuppilot.pdf", type: "application/pdf", disposition: ""
+        end
     end
   end
 

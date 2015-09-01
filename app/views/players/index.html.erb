@@ -1,6 +1,9 @@
-<h1>Utilisateurs</h1>
+<h1>Utilisateurs<small> (<%= @count %>)</small></h1>
 
 <div class="table-responsive">
+  <div class="text-center">
+      <%= paginate @players%><h3><small class="pull-right">Télécharger en <%= link_to 'format csv', players_path(format: :csv) %> | <%= link_to 'format pdf', players_path(format: :pdf) %></small><h3>
+  </div>
   <table class="table table-condensed table-hover table-bordered">
     <thead>
         <tr>
@@ -25,4 +28,8 @@
     </tbody>
 
   </table>
+  <div class="text-center">
+      <%= paginate @players%>
+  </div>
+
 </div>

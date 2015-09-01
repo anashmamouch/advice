@@ -3,11 +3,39 @@ class GamesController < ApplicationController
   #before_action :authenticate_user!
 
   def index
-    @games = Game.all
+    @games = Game.all.order('created_at DESC').page(params[:page])
+    @count = @games.count
 
     respond_to do |format|
         format.html
         format.json { @games = Game.all ; render json: @games }
+        format.csv  { @games = Game.all ; send_data @games.to_csv }
+        format.pdf  do
+          @games = Game.all
+          pdf = Prawn::Document.new
+
+          pdf.text "Statistiques WakeUpPilot"
+          pdf.move_down 10
+          #pdf.table
+          data = @games.map do |game|
+            if game.first_time
+              first = "OUI"
+            else
+              first = "NON"
+            end
+            [
+                  game.player_name,
+                  game.player_age,
+                  game.player_genre,
+                  game.total_touches,
+                  game.ball_touched,
+                  first,
+                  game.created_at.strftime("%d/%m/%Y  %H:%M")
+            ]
+          end
+          pdf.table [["Nom", "Age", "Genre", "Total", "Ball touche", "Reference", "Crée le"]] + data
+          send_data pdf.render, filename: "wakeuppilot.pdf", type: "application/pdf", disposition: ""
+        end
     end
   end
 

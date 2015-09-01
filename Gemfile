@@ -17,6 +17,8 @@ gem 'jquery-turbolinks'
 gem 'turbolinks',              '2.3.0'
 gem 'jbuilder',                '2.2.3'
 gem 'devise',               '~> 3.5.2'
+gem 'kaminari',            '~> 0.16.3'
+gem 'prawn-rails'
 gem 'sdoc',                    '0.4.0', group: :doc
 
 group :development, :test do

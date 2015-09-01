@@ -1,6 +1,9 @@
-<h1>Statistiques</h1>
+<h1>Statistiques<small> (<%= @count %>)</small></h1>
 
 <div class="table-responsive">
+  <div class="text-center">
+      <%= paginate @games%><h3><small class="pull-right">Télécharger en <%= link_to 'format csv', games_path(format: :csv) %> | <%= link_to 'format pdf', games_path(format: :pdf) %></small><h3>
+  </div>
   <table class="table table-condensed table-hover table-bordered">
     <thead>
         <tr>
